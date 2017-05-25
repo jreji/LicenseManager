@@ -1,7 +1,5 @@
 package license_manager.id;
 
-import java.util.Date;
-
 /**
  * The id object with pertinent fields
  * 
@@ -15,13 +13,13 @@ public class Id {
 	/** The first name on the license */
 	private String firstName;
 	/** The date of birth on the license */
-	private Date birthDate;
+	private String birthDate;
 	/** The date of issuance on the license */
-	private Date issuanceDate;
+	private String issuanceDate;
 	/** The expiration date on the license */
-	private Date expirationDate;
+	private String expirationDate;
 	/** The license number on the license */
-	private int licenseNumber;
+	private String licenseNumber;
 	/** The address on the license */
 	private String address;
 	/** The class character on the license */
@@ -63,8 +61,8 @@ public class Id {
 	 * @param hairColor
 	 *            is the hair color on the license
 	 */
-	public Id(String lastName, String firstName, Date birthDate, Date issuanceDate, Date expirationDate,
-			int licenseNumber, String address, String licenseClass, String sex, String height, String eyeColor,
+	public Id(String lastName, String firstName, String birthDate, String issuanceDate, String expirationDate,
+			String licenseNumber, String address, String licenseClass, String sex, String height, String eyeColor,
 			String hairColor) {
 		this.lastName = lastName;
 		this.firstName = firstName;
@@ -78,6 +76,13 @@ public class Id {
 		this.height = height;
 		this.eyeColor = eyeColor;
 		this.hairColor = hairColor;
+	}
+
+	/**
+	 * Constructor so that id can be empty
+	 */
+	public Id() {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -113,7 +118,7 @@ public class Id {
 	/**
 	 * @return the brithDate
 	 */
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
 
@@ -121,14 +126,14 @@ public class Id {
 	 * @param brithDate
 	 *            the brithDate to set
 	 */
-	public void setBirthDate(Date brithDate) {
+	public void setBirthDate(String brithDate) {
 		this.birthDate = brithDate;
 	}
 
 	/**
 	 * @return the issuanceDate
 	 */
-	public Date getIssuanceDate() {
+	public String getIssuanceDate() {
 		return issuanceDate;
 	}
 
@@ -136,14 +141,14 @@ public class Id {
 	 * @param issuanceDate
 	 *            the issuanceDate to set
 	 */
-	public void setIssuanceDate(Date issuanceDate) {
+	public void setIssuanceDate(String issuanceDate) {
 		this.issuanceDate = issuanceDate;
 	}
 
 	/**
 	 * @return the expirationDate
 	 */
-	public Date getExpirationDate() {
+	public String getExpirationDate() {
 		return expirationDate;
 	}
 
@@ -151,14 +156,14 @@ public class Id {
 	 * @param expirationDate
 	 *            the expirationDate to set
 	 */
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(String expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 
 	/**
 	 * @return the licenseNumber
 	 */
-	public int getLicenseNumber() {
+	public String getLicenseNumber() {
 		return licenseNumber;
 	}
 
@@ -166,7 +171,7 @@ public class Id {
 	 * @param licenseNumber
 	 *            the licenseNumber to set
 	 */
-	public void setLicenseNumber(int licenseNumber) {
+	public void setLicenseNumber(String licenseNumber) {
 		this.licenseNumber = licenseNumber;
 	}
 
