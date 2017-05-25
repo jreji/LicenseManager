@@ -24,31 +24,30 @@ public class LicenseManager {
 	 * @param pathToFile
 	 *            is the file path for the license file
 	 */
-	@SuppressWarnings("deprecation")
 	public LicenseManager(String pathToFile) {
 		try (Scanner fileReader = new Scanner(new FileInputStream(pathToFile), "UTF8")) {
 			while (fileReader.hasNext()) {
 				Id id = new Id();
 				id.setLastName(fileReader.next());
-				//System.out.println(id.getLastName());
+				// System.out.println(id.getLastName());
 				id.setFirstName(fileReader.next());
-				//System.out.println(id.getFirstName());
+				// System.out.println(id.getFirstName());
 				id.setBirthDate(fileReader.next());
-				//System.out.println(id.getBirthDate());
+				// System.out.println(id.getBirthDate());
 				id.setIssuanceDate(fileReader.next());
-				//System.out.println(id.getIssuanceDate());
+				// System.out.println(id.getIssuanceDate());
 				id.setExpirationDate(fileReader.next());
-				//System.out.println(id.getExpirationDate());
+				// System.out.println(id.getExpirationDate());
 				id.setLicenseNumber(fileReader.next());
-				//System.out.println(id.getLicenseNumber());
-
+				// System.out.println(id.getLicenseNumber());
 				id.setAddress(fileReader.nextLine());
-				System.out.println(id.getAddress());
+				// System.out.println(id.getAddress());
 				id.setLicenseClass(fileReader.next());
 				id.setSex(fileReader.next());
 				id.setHeight(fileReader.next());
 				id.setEyeColor(fileReader.next());
 				id.setHairColor(fileReader.next());
+				fileReader.next();
 				list.add(id);
 				process(id);
 			}
@@ -64,7 +63,7 @@ public class LicenseManager {
 	 *            is the id passed in
 	 */
 	private void process(Id id) {
-		// System.out.println(id.getLastName());
+		System.out.println(id.getLastName());
 	}
 
 }
