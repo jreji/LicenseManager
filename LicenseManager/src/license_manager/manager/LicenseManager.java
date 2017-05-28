@@ -26,31 +26,38 @@ public class LicenseManager {
 	 */
 	public LicenseManager(String pathToFile) {
 		try (Scanner fileReader = new Scanner(new FileInputStream(pathToFile), "UTF8")) {
-			while (fileReader.hasNext()) {
+			while (fileReader.hasNextLine()) {
+				String getLine = fileReader.nextLine();
+				Scanner lineReader = new Scanner(getLine);
 				Id id = new Id();
-				id.setLastName(fileReader.next());
-				// System.out.println(id.getLastName());
-				id.setFirstName(fileReader.next());
-				// System.out.println(id.getFirstName());
-				id.setBirthDate(fileReader.next());
-				// System.out.println(id.getBirthDate());
-				id.setIssuanceDate(fileReader.next());
-				// System.out.println(id.getIssuanceDate());
-				id.setExpirationDate(fileReader.next());
-				// System.out.println(id.getExpirationDate());
-				id.setLicenseNumber(fileReader.next());
-				// System.out.println(id.getLicenseNumber());
-				id.setAddress(fileReader.nextLine());
-				// System.out.println(id.getAddress());
-				id.setLicenseClass(fileReader.next());
-				id.setSex(fileReader.next());
-				id.setHeight(fileReader.next());
-				id.setEyeColor(fileReader.next());
-				id.setHairColor(fileReader.next());
-				fileReader.next();
+				id.setLastName(lineReader.next());
+				id.setFirstName(lineReader.next());
+				id.setBirthDate(lineReader.next());
+				id.setIssuanceDate(lineReader.next());
+				id.setExpirationDate(lineReader.next());
+				id.setLicenseNumber(lineReader.next());
 				list.add(id);
 				process(id);
+				lineReader.close();
 			}
+
+			// id.setLicenseNumber(fileReader.next());
+			// // System.out.println(id.getLicenseNumber());
+			// String getLine = fileReader.nextLine();
+			// Scanner lineReader = new Scanner(getLine);
+			// lineReader.useDelimiter("\\W+\\s*");
+			// id.setAddress(lineReader.next());
+			// // System.out.println(id.getAddress());
+			// id.setLicenseClass(fileReader.next());
+			// id.setSex(fileReader.next());
+			// id.setHeight(fileReader.next());
+			// id.setEyeColor(fileReader.next());
+			// id.setHairColor(fileReader.next());
+			// fileReader.next();
+			// list.add(id);
+			// process(id);
+			// }
+			fileReader.close();
 		} catch (FileNotFoundException e) {
 			throw new IllegalArgumentException();
 		}
@@ -64,6 +71,11 @@ public class LicenseManager {
 	 */
 	private void process(Id id) {
 		System.out.println(id.getLastName());
+		System.out.println(id.getFirstName());
+		System.out.println(id.getBirthDate());
+		System.out.println(id.getIssuanceDate());
+		System.out.println(id.getExpirationDate());
+		System.out.println(id.getLicenseNumber());
 	}
 
 }
