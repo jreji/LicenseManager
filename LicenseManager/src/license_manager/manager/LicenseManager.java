@@ -2,7 +2,6 @@ package license_manager.manager;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Date;
 import java.util.Scanner;
 
 import license_manager.id.Id;
@@ -37,27 +36,15 @@ public class LicenseManager {
 				id.setIssuanceDate(lineReader.next());
 				id.setExpirationDate(lineReader.next());
 				id.setLicenseNumber(lineReader.next());
+				id.setAddress(lineReader.next());
+				id.setLicenseClass(lineReader.next());
+				id.setSex(lineReader.next());
+				id.setHeight(lineReader.next());
+				id.setEyeColor(lineReader.next());
+				id.setHairColor(lineReader.next());
 				list.add(id);
-				process(id);
 				lineReader.close();
 			}
-
-			// id.setLicenseNumber(fileReader.next());
-			// // System.out.println(id.getLicenseNumber());
-			// String getLine = fileReader.nextLine();
-			// Scanner lineReader = new Scanner(getLine);
-			// lineReader.useDelimiter("\\W+\\s*");
-			// id.setAddress(lineReader.next());
-			// // System.out.println(id.getAddress());
-			// id.setLicenseClass(fileReader.next());
-			// id.setSex(fileReader.next());
-			// id.setHeight(fileReader.next());
-			// id.setEyeColor(fileReader.next());
-			// id.setHairColor(fileReader.next());
-			// fileReader.next();
-			// list.add(id);
-			// process(id);
-			// }
 			fileReader.close();
 		} catch (FileNotFoundException e) {
 			throw new IllegalArgumentException();
@@ -65,18 +52,30 @@ public class LicenseManager {
 	}
 
 	/**
-	 * Takes the list of Id's and does the manager process
+	 * Does the actual fake ID checking and returns if the ID is fake or not
 	 * 
-	 * @param id
-	 *            is the id passed in
+	 * @param firstName
+	 *            is the first name
+	 * @param lastName
+	 *            is the last name
+	 * @param licenseNumber
+	 *            is the license number
 	 */
-	private void process(Id id) {
-		System.out.println(id.getLastName());
-		System.out.println(id.getFirstName());
-		System.out.println(id.getBirthDate());
-		System.out.println(id.getIssuanceDate());
-		System.out.println(id.getExpirationDate());
-		System.out.println(id.getLicenseNumber());
+	public void process(String firstName, String lastName, String licenseNumber) {
+		boolean found = false;
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getFirstName().equalsIgnoreCase(firstName)
+					&& list.get(i).getLastName().equalsIgnoreCase(lastName)
+					&& list.get(i).getLicenseNumber().equalsIgnoreCase(licenseNumber)) {
+				found = true;
+				break;
+			}
+		}
+		if (found == true) {
+			System.out.println("ID Verfied!");
+		} else {
+			System.out.println("FAKE ID.");
+		}
 	}
 
 }
