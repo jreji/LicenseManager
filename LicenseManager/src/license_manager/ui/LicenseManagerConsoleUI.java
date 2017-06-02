@@ -11,7 +11,7 @@ import license_manager.manager.LicenseManager;
  * @author Allen Thomas
  *
  */
-public class LicenseManagerUI {
+public class LicenseManagerConsoleUI {
 
 	/**
 	 * Main method to test the program

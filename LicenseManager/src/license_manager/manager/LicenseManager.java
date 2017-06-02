@@ -28,7 +28,6 @@ public class LicenseManager {
 			while (fileReader.hasNextLine()) {
 				String getLine = fileReader.nextLine();
 				Scanner lineReader = new Scanner(getLine);
-				/** Joel */
 				Id id = new Id();
 				id.setLastName(lineReader.next());
 				id.setFirstName(lineReader.next());
